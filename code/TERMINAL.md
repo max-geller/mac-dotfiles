@@ -24,6 +24,8 @@
 - Spotifyd (Spotify Daemon)
 - lazygit (Git Interface)
 - lazydocker (Pending)
+- cmatrix (Matrix Screensaver)
+- figlet (ASCII Art)
 
 ## TODO
 
