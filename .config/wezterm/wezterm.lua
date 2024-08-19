@@ -3,7 +3,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 config = {
-  default_cwd = "/code",
+  default_cwd = "/Users/maxgeller/code",
   automatically_reload_config = true,
   enable_tab_bar = false,
   window_close_confirmation = "NeverPrompt",
