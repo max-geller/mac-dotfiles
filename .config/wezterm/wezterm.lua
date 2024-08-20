@@ -30,24 +30,24 @@ local angular_workspace = {
   cwd = "/Users/maxgeller/code/Angular",
   panes = {
     { command = { "nvim" } },
-    { command = { "zsh", "-c", "clear; zsh" } },  -- This will use the default Starship config
-    { command = { "/Users/maxgeller/.config/scripts/claude_pane.sh" } },  -- This uses the custom script
+    { command = { "zsh", "-c", "clear; zsh" } },
+    { command = { "/Users/maxgeller/.config/scripts/run_claude_engineer.sh" } },
   }
 }
 
 -- Function to create Angular workspace
 local function create_angular_workspace(window, pane)
-  -- Create the first pane (Neovim)
+  -- Create the Primary Pane (Neovim)
   pane:send_text("cd " .. angular_workspace.cwd .. "\n")
   pane:send_text(table.concat(angular_workspace.panes[1].command, " ") .. "\n")
 
-  -- Create the second pane (terminal with default Starship) below the first
-  local second_pane = pane:split{ direction = "Bottom", size = 0.2 }
+  -- Create the Terminal Window Pane (with default Starship config) below the first
+  local second_pane = pane:split{ direction = "Bottom", size = 0.15 }
   second_pane:send_text("cd " .. angular_workspace.cwd .. "\n")
   second_pane:send_text(table.concat(angular_workspace.panes[2].command, " ") .. "\n")
 
-  -- Create the third pane (terminal with custom script) to the right, full height
-  local third_pane = pane:split{ direction = "Right", size = 0.2 }
+  -- Create the Claude AI Chat Pane (with minimal Starship config) to the right, full height
+  local third_pane = pane:split{ direction = "Right", size = 0.15 }
   third_pane:send_text("cd " .. angular_workspace.cwd .. "\n")
   third_pane:send_text(table.concat(angular_workspace.panes[3].command, " ") .. "\n")
 end
@@ -56,8 +56,19 @@ end
 wezterm.on("gui-startup", function(cmd)
   local args = cmd.args
   if #args > 0 and args[1] == "angular" then
-    local window, pane, _ = wezterm.mux.spawn_window{}
+    local window, pane, _ = wezterm.mux.spawn_window{
+      workspace = "angular",
+    }
     create_angular_workspace(window, pane)
+    
+    -- Use a slight delay to ensure the window is fully created before setting fullscreen
+    wezterm.sleep_ms(100)
+    
+    -- Set fullscreen mode
+    local gui_window = window:gui_window()
+    if gui_window then
+      gui_window:set_fullscreen(true)
+    end
   end
   -- If no special args, default behavior is maintained
 end)
