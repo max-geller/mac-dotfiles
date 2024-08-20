@@ -24,6 +24,7 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go To Next Tab" }) -- G
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go To Previous Tab" }) -- Go To Previous Tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open Current Buffer In New Tab" }) -- Open Current Buffer In New Tab
 
-
+-- Prettier Formatting
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = "Format file" })
 
 

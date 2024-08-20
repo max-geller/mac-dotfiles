@@ -12,7 +12,7 @@ config = {
   window_decorations = "RESIZE",  -- Eliminates Standard Mac Window Management
   default_cursor_style = "BlinkingBar",
   color_scheme = "Nord (Gogh)",
-  window_background_opacity = 0.88,  -- Set Window Opacity
+  window_background_opacity = 0.9,  -- Set Window Opacity
   macos_window_background_blur = 07, -- Set Window Background Blur
   font = wezterm.font("JetBrains Mono", {weight = "Bold"}),
   font_size = 12.5,
