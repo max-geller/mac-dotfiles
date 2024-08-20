@@ -30,24 +30,26 @@ local angular_workspace = {
   cwd = "/Users/maxgeller/code/Angular",
   panes = {
     { command = { "nvim" } },
-    { command = { "zsh", "-c", "clear; zsh" } },  -- Clear terminal before starting zsh
+    { command = { "zsh", "-c", "clear; zsh" } },  -- This will use the default Starship config
+    { command = { "/Users/maxgeller/.config/scripts/claude_pane.sh" } },  -- This uses the custom script
   }
 }
 
 -- Function to create Angular workspace
 local function create_angular_workspace(window, pane)
-  for i, pane_config in ipairs(angular_workspace.panes) do
-    if i > 1 then
-      pane = pane:split{ direction = "Bottom", size = 0.3 }
-    end
-    
-    -- Set the correct working directory for each pane
-    pane:send_text("cd " .. angular_workspace.cwd .. "\n")
-    
-    if pane_config.command then
-      pane:send_text(table.concat(pane_config.command, " ") .. "\n")
-    end
-  end
+  -- Create the first pane (Neovim)
+  pane:send_text("cd " .. angular_workspace.cwd .. "\n")
+  pane:send_text(table.concat(angular_workspace.panes[1].command, " ") .. "\n")
+
+  -- Create the second pane (terminal with default Starship) below the first
+  local second_pane = pane:split{ direction = "Bottom", size = 0.2 }
+  second_pane:send_text("cd " .. angular_workspace.cwd .. "\n")
+  second_pane:send_text(table.concat(angular_workspace.panes[2].command, " ") .. "\n")
+
+  -- Create the third pane (terminal with custom script) to the right, full height
+  local third_pane = pane:split{ direction = "Right", size = 0.2 }
+  third_pane:send_text("cd " .. angular_workspace.cwd .. "\n")
+  third_pane:send_text(table.concat(angular_workspace.panes[3].command, " ") .. "\n")
 end
 
 -- Event handler for gui-startup

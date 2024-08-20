@@ -1,0 +1,26 @@
+add_newline = true
+
+format = """
+$custom
+$character
+"""
+
+[custom.claude]
+command = "echo 'AI Chat (Claude Sonnet)'"
+when = "true"
+format = "[$output]($style)\n"
+style = "bold blue"
+
+[character]
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"
+
+[directory]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[username]
+disabled = true
