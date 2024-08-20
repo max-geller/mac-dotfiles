@@ -21,11 +21,14 @@ return {
         icons = {
           glyphs = {
             folder = {
-              arrow_closed = "", -- arrow when folder is closed
-              arrow_open = "", -- arrow when folder is open
+              -- arrow_closed = "", -- arrow when folder is closed
+              -- arrow_open = "", -- arrow when folder is open
             },
           },
         },
+        highlight_git = true,
+        root_folder_label = false,
+        add_trailing = false,
       },
       -- disable window_picker for
       -- explorer to work well with
@@ -52,5 +55,14 @@ return {
     keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file
     keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
     keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
+
+    -- Add these lines after nvimtree.setup()
+    vim.cmd([[
+      augroup NvimTreeTransparent
+        autocmd!
+        autocmd ColorScheme * highlight NvimTreeNormal guibg=NONE
+        autocmd ColorScheme * highlight NvimTreeEndOfBuffer guibg=NONE
+      augroup END
+    ]])
   end
 }

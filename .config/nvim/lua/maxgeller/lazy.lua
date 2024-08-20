@@ -11,4 +11,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("maxgeller.plugins")
+require("lazy").setup("maxgeller.plugins", {
+  checker = {
+    enabled = true,
+    notify = false,
+  },
+  change_detection = {
+    notify = flase,
+  },
+})
