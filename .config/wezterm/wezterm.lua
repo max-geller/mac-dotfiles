@@ -24,45 +24,43 @@ config.window_padding = {
     top = 5,
     bottom = 3
 }
-config.default_prog = {'zsh', '-c', '/opt/homebrew/bin/neofetch; exec zsh'}
 
--- Angular workspace definition
-local angular_workspace = {
-    name = "angular",
-    cwd = "/Users/maxgeller/code/Angular",
-    panes = {{
-        command = {"nvim"}
-    }, {
-        command = {"tmux", "new-session", "-A", "-s", "angular_terminal"}
-    }}
-}
-
--- Function to create Angular workspace
-local function create_angular_workspace(window, pane)
-    -- Create the Primary Pane (Neovim)
-    pane:send_text("cd " .. angular_workspace.cwd .. "\n")
-    pane:send_text(table.concat(angular_workspace.panes[1].command, " ") .. "\n")
-
-    -- Create the Terminal Window Pane with tmux (for tabs) below the first
-    local second_pane = pane:split{
-        direction = "Bottom",
-        size = 0.15
-    }
-    second_pane:send_text("cd " .. angular_workspace.cwd .. "\n")
-    second_pane:send_text(table.concat(angular_workspace.panes[2].command, " ") .. "\n")
-end
+-- Import workspace configurations
+local angular_workspace = require("angular_workspace")
+local react_workspace = require("react_workspace")
+local python_workspace = require("python_workspace")
+local go_workspace = require("go_workspace")
 
 -- Event handler for gui-startup
 wezterm.on("gui-startup", function(cmd)
     local args = cmd.args
-    if #args > 0 and args[1] == "angular" then
-        wezterm.log_info("Starting Angular workspace")
-        local window, pane, _ = wezterm.mux.spawn_window {
-            workspace = "angular"
-        }
-        create_angular_workspace(window, pane)
-
-     end
+    if #args > 0 then
+        if args[1] == "angular" then
+            wezterm.log_info("Starting Angular workspace")
+            local window, pane, _ = wezterm.mux.spawn_window {
+                workspace = angular_workspace.workspace.name
+            }
+            angular_workspace.create(window, pane)
+        elseif args[1] == "react" then
+            wezterm.log_info("Starting React workspace")
+            local window, pane, _ = wezterm.mux.spawn_window {
+                workspace = react_workspace.workspace.name
+            }
+            react_workspace.create(window, pane)
+        elseif args[1] == "python" then
+            wezterm.log_info("Starting Python workspace")
+            local window, pane, _ = wezterm.mux.spawn_window {
+                workspace = python_workspace.workspace.name
+            }
+            python_workspace.create(window, pane)
+        elseif args[1] == "go" then
+            wezterm.log_info("Starting Go workspace")
+            local window, pane, _ = wezterm.mux.spawn_window {
+                workspace = go_workspace.workspace.name
+            }
+            go_workspace.create(window, pane)
+        end
+    end
     -- If no special args, default behavior is maintained
 end)
 

@@ -17,6 +17,6 @@ require("lazy").setup("maxgeller.plugins", {
     notify = false,
   },
   change_detection = {
-    notify = flase,
+    notify = false,
   },
 })

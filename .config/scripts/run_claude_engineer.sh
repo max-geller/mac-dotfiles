@@ -4,6 +4,9 @@
 export STARSHIP_CONFIG=/Users/maxgeller/.config/pure_starship.toml
 clear
 
+# Set the Angular project directory
+ANGULAR_DIR="/Users/maxgeller/code/Angular"
+
 # Navigate to the claude-engineer directory
 cd /Users/maxgeller/claude-engineer
 
@@ -19,5 +22,8 @@ pip install -r requirements.txt
 # Clear the terminal again before running main.py
 clear
 
+# Change to the Angular project directory
+cd "$ANGULAR_DIR"
+
 # Run the main.py script
-python main.py
+python /Users/maxgeller/claude-engineer/main.py
