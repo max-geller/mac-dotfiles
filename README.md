@@ -51,9 +51,9 @@
 - todo-comments
 - treesitter (Syntax Highlighting)
 - vim-maximizer (Maximize Pane)
-- which-key (Keybindings)
-- CoPilot
-- Parrot ()
+
+- CoPilot (AI Code Completion)
+- Parrot (AI Chat)
 
 ## Common Packages
 
@@ -70,14 +70,16 @@
 
 - [ ] Configure Theme Accross WezTerm, NeoVim, Starship
 - [ ] Setup WezTerm workspace for performance monitoring
-- [ ] Master Shortcuts:
-    - [ ] Aerospace
-    - [ ] WezTerm
-    - [ ] NeoVim
-    - [ ] Copilot
-    - [ ] nvim-tree
-    - [ ] Telescope
-    - [ ] Parrot
-    - [ ] LazyGit
 - [ ] Confirm Prettier Options
 - [ ] Configure LSP for NeoVim
+- [ ] Confirm starship styling
+- [ ] Master Shortcuts:
+  - [ ] Aerospace
+  - [ ] WezTerm
+  - [ ] tmux
+  - [ ] NeoVim
+  - [ ] Copilot
+  - [ ] nvim-tree
+  - [ ] Telescope
+  - [ ] Parrot
+  - [ ] LazyGit
