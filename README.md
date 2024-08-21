@@ -66,13 +66,14 @@
 - cmatrix (Matrix Screensaver)
 - figlet (ASCII Art)
 
-## TODO
+# TODO
 
 - [ ] Configure Theme Accross WezTerm, NeoVim, Starship
 - [ ] Setup WezTerm workspace for performance monitoring
 - [ ] Confirm Prettier Options
 - [ ] Configure LSP for NeoVim
 - [ ] Confirm starship styling
+- [ ] Fix nvim Tab Display Issue
 - [ ] Master Shortcuts:
   - [ ] Aerospace
   - [ ] WezTerm
@@ -83,3 +84,23 @@
   - [ ] Telescope
   - [ ] Parrot
   - [ ] LazyGit
+
+## Keyboard Shortcut Approach
+
+| Function                 | Service       | Approach           |
+|--------------------------|---------------|--------------------|
+| MacOS Window Management  | Aerospace     | `alt'              |
+| zsh                      | zsh           | `ctrl'             |
+| WezTerm Workspaces       | WezTerm       | `^+opt+cmd' +      |
+| Terminal Panes           | WezTerm       | `ctrl'             |
+| NeoVim Panes             | tmux          | `space s' +           |
+| NeoVim Sessions          | auto-session  | `space w' +        |
+| NeoVim Fuzzy Finder      | Telescope     | `space f' +        |
+| NeoVim File Tree         | nvim-tree     | `space e' +        |
+| NeoVim Git Interface     | LazyGit       | `space g' +        |
+| NeoVim AI Chat           | CoPilot       | `space c' +        |
+| NeoVim Formatter         | Prettier      | `space' + f        |
+| NeoVim Commenting        | Comment       | `space' + c        |
+
+
+
