@@ -11,8 +11,8 @@ local themes = {
 local default_theme = "catppuccin"
 
 function M.setup()
-  -- Set the colorscheme to the default theme
   vim.cmd("colorscheme " .. default_theme)
+  print("Theme set to " .. default_theme)
 end
 
 -- Function to change theme

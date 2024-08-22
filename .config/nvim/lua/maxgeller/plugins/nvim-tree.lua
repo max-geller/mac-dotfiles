@@ -13,7 +13,6 @@ return {
                 width = 35,
                 relativenumber = true
             },
-            -- change folder arrow icons
             renderer = {
                 indent_markers = {
                     enable = true
@@ -21,18 +20,15 @@ return {
                 icons = {
                     glyphs = {
                         folder = {
-                            -- arrow_closed = "", -- arrow when folder is closed
-                            -- arrow_open = "", -- arrow when folder is open
+                            -- arrow_closed = "", -- arrow when folder is closed
+                            -- arrow_open = "", -- arrow when folder is open
                         }
                     }
                 },
                 highlight_git = true,
                 root_folder_label = false,
-                add_trailing = false
+                add_trailing = false,
             },
-            -- disable window_picker for
-            -- explorer to work well with
-            -- window splits
             actions = {
                 open_file = {
                     window_picker = {
@@ -45,6 +41,17 @@ return {
             },
             git = {
                 ignore = false
+            },
+            highlight = {
+                enable = true,
+                custom = {
+                    directory = {
+                        fg = "#fffff"
+                    },
+                    ["git_ignored"] = {
+                        fg = "#545c7e"
+                    }
+                }
             }
         })
 
@@ -64,12 +71,27 @@ return {
             desc = "Refresh file explorer"
         }) -- refresh file explorer
 
-        vim.cmd([[
-      augroup NvimTreeTransparent
-        autocmd!
-        autocmd ColorScheme * highlight NvimTreeNormal guibg=NONE
-        autocmd ColorScheme * highlight NvimTreeEndOfBuffer guibg=NONE
-      augroup END
-    ]])
+        local function update_nvim_tree_colors()
+            vim.cmd([[
+                highlight NvimTreeNormal guibg=NONE
+                highlight NvimTreeEndOfBuffer guibg=NONE
+                highlight NvimTreeFolderName guifg=#e5c890
+                highlight NvimTreeOpenedFolderName guifg=#e5c890 gui=bold
+                highlight NvimTreeEmptyFolderName guifg=#e5c890
+                highlight NvimTreeFileIcon guifg=#9ece6a
+                highlight NvimTreeGitNew guifg=#9ece6a
+                highlight NvimTreeGitDirty guifg=#e0af68
+                highlight NvimTreeGitStaged guifg=#73daca
+            ]])
+        end
+
+        update_nvim_tree_colors()
+
+        vim.api.nvim_create_autocmd("ColorScheme", {
+            pattern = "*",
+            callback = update_nvim_tree_colors
+        })
+
     end
+
 }
