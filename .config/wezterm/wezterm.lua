@@ -30,6 +30,7 @@ local angular_workspace = require("angular_workspace")
 local react_workspace = require("react_workspace")
 local python_workspace = require("python_workspace")
 local go_workspace = require("go_workspace")
+local nvim_workspace = require("nvim_workspace")
 
 -- Keyboard Shortcuts
 config.keys = {
@@ -64,29 +65,35 @@ wezterm.on("gui-startup", function(cmd)
     local args = cmd.args
     if #args > 0 then
         if args[1] == "angular" then
-            wezterm.log_info("Starting Angular workspace")
+            wezterm.log_info("Starting Angular Workspace")
             local window, pane, _ = wezterm.mux.spawn_window {
                 workspace = angular_workspace.workspace.name
             }
             angular_workspace.create(window, pane)
         elseif args[1] == "react" then
-            wezterm.log_info("Starting React workspace")
+            wezterm.log_info("Starting React Workspace")
             local window, pane, _ = wezterm.mux.spawn_window {
                 workspace = react_workspace.workspace.name
             }
             react_workspace.create(window, pane)
         elseif args[1] == "python" then
-            wezterm.log_info("Starting Python workspace")
+            wezterm.log_info("Starting Python Workspace")
             local window, pane, _ = wezterm.mux.spawn_window {
                 workspace = python_workspace.workspace.name
             }
             python_workspace.create(window, pane)
         elseif args[1] == "go" then
-            wezterm.log_info("Starting Go workspace")
+            wezterm.log_info("Starting Go Workspace")
             local window, pane, _ = wezterm.mux.spawn_window {
                 workspace = go_workspace.workspace.name
             }
             go_workspace.create(window, pane)
+        elseif args[1] == "nvim" then
+            wezterm.log_info("Starting NeoVim Cofig Workspace")
+            local window, pane, _ = wezterm.mux.spawn_window {
+                workspace = nvim_workspace.workspace.name
+            }
+            nvim_workspace.create(window, pane)
         end
     end
 end)
