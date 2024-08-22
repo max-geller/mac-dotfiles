@@ -68,15 +68,16 @@
 
 # TODO
 
-- [ ] Configure Theme Accross WezTerm, NeoVim, Starship
+- [ ] Configure Theme Accross WezTerm, NeoVim, Starship (Catppuccin)
 - [ ] Setup WezTerm workspace for performance monitoring
+- [ ] Fix WezTerm New Window & Workspace Issue (Does not open if existing window is open)
 - [ ] Confirm Prettier Options
 - [ ] Configure LSP for NeoVim
-- [ ] Confirm starship styling
+- [x] Confirm starship styling
 - [ ] Fix nvim Tab Display Issue
 - [ ] Master Shortcuts:
   - [ ] Aerospace
-  - [ ] WezTerm
+  - [x] WezTerm
   - [ ] tmux
   - [ ] NeoVim
   - [ ] Copilot
@@ -87,19 +88,43 @@
 
 ## Keyboard Shortcut Approach
 
-| Function                 | Service       | Approach           |
-|--------------------------|---------------|--------------------|
-| MacOS Window Management  | Aerospace     | `alt'              |
-| zsh                      | zsh           | `ctrl'             |
-| WezTerm                  | WezTerm       | `ctrl+opt+cmd' +   |
-| NeoVim Panes             | tmux          | `ctrl' +           |
-| NeoVim Sessions          | auto-session  | `space w' +        |
-| NeoVim Fuzzy Finder      | Telescope     | `space f' +        |
-| NeoVim File Tree         | nvim-tree     | `space e' +        |
-| NeoVim Git Interface     | LazyGit       | `space g' +        |
-| NeoVim AI Chat           | CoPilot       | `space c' +        |
-| NeoVim Formatter         | Prettier      | `space' + f        |
-| NeoVim Commenting        | Comment       | `space' + c        |
+| Function                 | Service      | Approach         |
+| ------------------------ | ------------ | ---------------- |
+| MacOS Window Management  | Aerospace    | `alt'            |
+| zsh                      | zsh          | `ctrl'           |
+| Launch WezTerm Workspace | WezTerm      | `ctrl+opt+cmd' + |
+| NeoVim Navigate Panes    | tmux         | `ctrl' +         |
+| NeoVim Split Windows     | tmux         | 'space s' +      |
+| NeoVim Sessions          | auto-session | `space w' +      |
+| NeoVim Fuzzy Finder      | Telescope    | `space f' +      |
+| NeoVim File Tree         | nvim-tree    | `space e' +      |
+| NeoVim Git Interface     | LazyGit      | `space g' +      |
+| NeoVim AI Chat           | CoPilot      | `space c' +      |
+| NeoVim Formatter         | Prettier     | `space' + f      |
+| NeoVim Commenting        | Comment      | `space' + c      |
 
+## Common NeoVim Keyboard Shortcuts
 
-
+| Function                     | Service   | Shortcut   |
+| ---------------------------- | --------- | ---------- |
+| Insert Mode                  | NeoVim    | 'i'        |
+| Normal Mode                  | NeoVim    | 'jk'       |
+| Toggle between NVIM panes    | Aerospace | 'alt'      |
+| Toggle File Explorer Display | nvim-tree | 'space ee' |
+| Create New File              | nvim-tree | 'a'        |
+| Rename File                  | nvim-tree | 'r'        |
+| Delete File                  | nvim-tree | 'd'        |
+| Toggle Fuzzy Finder          | Telescope | 'space ff' |
+| Split Window Vertically      | tmux      | 'space sv' |
+| Split Window Horizontally    | tmux      | ''         |
+| Close Current Pane           | tmux      | 'space sx  |
+| Move to Pane Left            | tmux      | 'ctrl + h' |
+| Move to Pane Right           | tmux      | 'ctrl + l' |
+| Toggle Maximize Pane         | tmux      | 'space sm' |
+| Create New Tab               | tmux      | 'space to' |
+| Close Current Tab            | tmux      | 'space tx' |
+| Go to Next Tab               | tmux      | 'space tn' |
+| Go to Previous Tab           | tmux      | 'space tp' |
+| Format Code                  | prettier  | 'space f'  |
+| Search Next ToDo Item        | todo      | 'space ]n' |
+| Search Previous ToDo Item    | todo      | 'space [n' |
