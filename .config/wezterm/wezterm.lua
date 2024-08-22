@@ -35,13 +35,13 @@ local go_workspace = require("go_workspace")
 config.keys = {
   -- Split vertically
   {
-    key = 'v',
+    key = 'h',
     mods = 'CTRL|SHIFT|OPT',
     action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
   },
   -- Split horizontally
   {
-    key = 'h',
+    key = 'v',
     mods = 'CTRL|SHIFT|OPT',
     action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
   },
