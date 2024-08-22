@@ -11,8 +11,8 @@ config.enable_tab_bar = false
 config.window_close_confirmation = "NeverPrompt"
 config.window_decorations = "RESIZE"
 config.default_cursor_style = "BlinkingBar"
-config.color_scheme = "Nord (Gogh)"
-config.window_background_opacity = 0.55
+config.color_scheme = "Tokyo Night Storm (Gogh)"
+config.window_background_opacity = 0.20
 config.macos_window_background_blur = 07
 config.font = wezterm.font("JetBrains Mono", {
     weight = "Bold"
@@ -30,6 +30,34 @@ local angular_workspace = require("angular_workspace")
 local react_workspace = require("react_workspace")
 local python_workspace = require("python_workspace")
 local go_workspace = require("go_workspace")
+
+-- Keyboard Shortcuts
+config.keys = {
+  -- Split vertically
+  {
+    key = 'v',
+    mods = 'CTRL|SHIFT|OPT',
+    action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
+  },
+  -- Split horizontally
+  {
+    key = 'h',
+    mods = 'CTRL|SHIFT|OPT',
+    action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+  },
+  -- Close pane
+  {
+    key = 'x',
+    mods = 'CTRL|SHIFT|OPT',
+    action = wezterm.action.CloseCurrentPane { confirm = false },
+  },
+  -- Enter pane selection mode
+  {
+    key = 's',
+    mods = 'CTRL|SHIFT|OPT',
+    action = wezterm.action.PaneSelect,
+  },
+}
 
 -- Event handler for gui-startup
 wezterm.on("gui-startup", function(cmd)
@@ -61,7 +89,6 @@ wezterm.on("gui-startup", function(cmd)
             go_workspace.create(window, pane)
         end
     end
-    -- If no special args, default behavior is maintained
 end)
 
 return config
