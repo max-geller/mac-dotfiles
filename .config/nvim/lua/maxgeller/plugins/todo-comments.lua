@@ -2,6 +2,20 @@ return {
   "folke/todo-comments.nvim",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = { "nvim-lua/plenary.nvim" },
+  opts = {
+    signs = true,
+    highlight = {
+      before = "fg",
+      keyword = "wide",
+      after = "fg",
+    },
+    keywords = {
+      TODO = { icon = " ", color = "info" },
+       },
+    colors = {
+      info = { "Normal", "#0db9d7" },
+    },
+  },
   config = function()
     local todo_comments = require("todo-comments")
 
@@ -19,3 +33,8 @@ return {
     todo_comments.setup()
   end,
 }
+
+
+-- Examples:
+-- TODO: Add more plugins
+-- FIX: Fix Something

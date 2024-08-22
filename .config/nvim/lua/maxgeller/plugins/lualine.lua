@@ -62,9 +62,10 @@ return {
             color = { fg = "#ff9e64" },
           },
           { "encoding" },
-          { "fileformat" },
+       --   { "fileformat" },
           { "filetype" },
         },
+        lualine_y = { "branch" },
       },
     })
   end,

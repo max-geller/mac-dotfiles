@@ -42,6 +42,5 @@ return {
       end,
     })
 
-    vim.cmd("colorscheme tokyonight")
   end
 }
