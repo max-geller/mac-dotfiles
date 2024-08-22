@@ -91,9 +91,8 @@
 |--------------------------|---------------|--------------------|
 | MacOS Window Management  | Aerospace     | `alt'              |
 | zsh                      | zsh           | `ctrl'             |
-| WezTerm Workspaces       | WezTerm       | `^+opt+cmd' +      |
-| Terminal Panes           | WezTerm       | `ctrl'             |
-| NeoVim Panes             | tmux          | `space s' +           |
+| WezTerm                  | WezTerm       | `ctrl+opt+cmd' +   |
+| NeoVim Panes             | tmux          | `ctrl' +           |
 | NeoVim Sessions          | auto-session  | `space w' +        |
 | NeoVim Fuzzy Finder      | Telescope     | `space f' +        |
 | NeoVim File Tree         | nvim-tree     | `space e' +        |
