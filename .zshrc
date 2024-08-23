@@ -43,5 +43,3 @@ alias ls="eza --color=always --long --no-filesize --icons=always --no-time --no-
 # Zoxide Setup
 alias cd="z"
 eval "$(zoxide init zsh)"
-
-
