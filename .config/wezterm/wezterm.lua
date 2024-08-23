@@ -11,12 +11,20 @@ config.enable_tab_bar = false
 config.window_close_confirmation = "NeverPrompt"
 config.window_decorations = "RESIZE"
 config.default_cursor_style = "BlinkingBar"
-config.color_scheme = "Tokyo Night Storm (Gogh)"
-config.window_background_opacity = 0.20
-config.macos_window_background_blur = 07
+config.color_scheme = "catppuccin-frappe"
+config.window_background_image = "/Users/maxgeller/Pictures/WezTerm/big-sur.jpg"
+-- config.window_background_image_opacity = 0.3
+-- config.macos_window_background_blur = 07
 config.font = wezterm.font("JetBrains Mono", {
     weight = "Bold"
 })
+-- Add this line to darken the background image
+config.window_background_image_hsb = {
+    brightness = 0.5,
+    hue = 1.0,
+    saturation = 1.0,
+  }
+
 config.font_size = 12.5
 config.window_padding = {
     left = 5,
