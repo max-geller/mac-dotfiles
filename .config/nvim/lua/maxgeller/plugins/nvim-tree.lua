@@ -42,17 +42,7 @@ return {
             git = {
                 ignore = false
             },
-            highlight = {
-                enable = true,
-                custom = {
-                    directory = {
-                        fg = "#fffff"
-                    },
-                    ["git_ignored"] = {
-                        fg = "#545c7e"
-                    }
-                }
-            }
+   
         })
 
         -- set keymaps
@@ -73,15 +63,26 @@ return {
 
         local function update_nvim_tree_colors()
             vim.cmd([[
-                highlight NvimTreeNormal guibg=NONE
-                highlight NvimTreeEndOfBuffer guibg=NONE
-                highlight NvimTreeFolderName guifg=#e5c890
-                highlight NvimTreeOpenedFolderName guifg=#e5c890 gui=bold
-                highlight NvimTreeEmptyFolderName guifg=#e5c890
-                highlight NvimTreeFileIcon guifg=#9ece6a
-                highlight NvimTreeGitNew guifg=#9ece6a
-                highlight NvimTreeGitDirty guifg=#e0af68
-                highlight NvimTreeGitStaged guifg=#73daca
+                :hi NvimTreeNormal guibg=NONE
+                :hi NvimTreeEndOfBuffer guibg=NONE
+                :hi NvimTreeFolderName guifg=#e5c890
+                :hi NvimTreeOpenedFolderName guifg=#e5c890 gui=bold
+                :hi NvimTreeEmptyFolderName guifg=#e5c890
+                :hi NvimTreeFileIcon guifg=#9ece6a
+                :hi NvimTreeGitNew guifg=#9ece6a
+                :hi NvimTreeGitDirty guifg=#e0af68
+                :hi NvimTreeGitStaged guifg=#73daca
+
+                :hi NvimTreeExecFile guifg=#e5c890
+                :hi NvimTreeSpecialFile guifg=#e5c890
+                :hi NvimTreeSymlink guifg=#e5c890 gui=underline
+                :hi NvimTreeIndentMarker guifg=#4b5263
+                :hi NvimTreeRootFolder guifg=#e5c890 gui=bold
+                :hi NvimTreeImageFile guifg=#e5c890
+                :hi NvimTreeMarkdownFile guifg=#e5c890
+                :hi NvimTreeLicenseFile guifg=#e5c890
+                :hi NvimTreeLuaFile guifg=#e5c890
+
             ]])
         end
 

@@ -2,6 +2,7 @@ require("maxgeller.core")
 require("maxgeller.lazy")
 require("maxgeller.themes").setup()
 
+
 -- Command to change themes:
 
 vim.api.nvim_create_user_command("ChangeTheme", function(opts)
